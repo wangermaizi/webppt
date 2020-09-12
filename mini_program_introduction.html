@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>mini_program_introduction</title>
+		<meta name="description" content="This is a presentation that shows how does the jquery works.">
+		<meta name="author" content="MayanDev/zouxiaoming">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<style type="text/css">
+			button {
+				width: 150px;
+				height: 60px;
+				font-size: 20px;
+				border-radius: 2px;
+			}
+			input {
+				width: 250px;
+				height: 60px;
+				font-size: 25px;
+			}
+			#focus_show {
+				display: none;
+			}
+
+			#panel,#flip
+			{
+				padding:5px;
+				text-align:center;
+				background-color:#42affa;
+				color: #fff;
+			}
+			#panel
+			{
+				padding:50px;
+				display:none;
+			}
+		</style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>-->
+		<script src="lib/js/html5shiv.js"></script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section   data-background="images/bg10.jpg">
+					<h1>微信小程序</h1>
+					<p>
+						<em>Presented by <a href="https://blog.csdn.net/qq_37954086">MayanDev</a></em>
+					</p>
+				</section>
+
+				<section   data-background="images/bg10.jpg">
+					<h2>分享内容</h2>
+					<p>
+						<ul>
+							<li class="fragment">小程序介绍（10min）</li>
+							<li class="fragment">开发准备（20min）</li>
+							<li class="fragment">组件介绍（30min）</li>
+							<li class="fragment">API介绍（30min）</li>
+							<li class="fragment">制作校徽头像小程序（30min）</li>
+							<li class="fragment">自行实现校徽搜索功能（30min）</li>
+						</ul>
+					</p>
+				</section>
+
+				<section  data-background="images/bg10.jpg">
+					<section>
+						<h2>微信小程序</h2>
+						<blockquote>&ldquo;微信小程序，简称小程序，是一种不需要下载安装即可使用的应用，它实现了应用触手可及的梦想，用户扫一扫或者搜一下即可打开应用  &rdquo;</blockquote>
+					</section>
+				</section>
+
+				<section  data-background="images/bg10.jpg">
+					<section>
+						<h2>发展历程</h2>
+						<ul>
+							<li class="fragment">2017.1 小程序正式上线</li>
+							<li class="fragment">2017.4 公众号跳转小程序</li>
+							<li class="fragment">2017.12 小游戏上线</li>
+							<li class="fragment">2018.3 小程序开放插件功能</li>
+							<li class="fragment">2018.5 App打开小程序</li>
+							<li class="fragment">2018.7 广告组件全面开放</li>
+						</ul>
+					</section>
+				</section>
+
+
+				<section data-background-transition="zoom" data-transition="slide"  data-background="images/bg4.jpg">
+					<section>
+						<h2>对比原生App</h2>
+
+					</section>
+					<section>
+						<h2>优点</h2>
+						<ul>
+							<li  class="fragment">开发周期短、成本低</li>
+							<li  class="fragment">依赖微信生态，获客量大</li>
+							<li  class="fragment">无需下载，用完即走</li>
+						</ul>
+					</section>
+					<section>
+						<h2>缺点</h2>
+						<ul>
+							<li class="fragment">功能不够丰富，无法自定义</li>
+							<li class="fragment">接口迭代速度快</li>
+							<li class="fragment">要看马爸爸的脸色...</li>
+						</ul>
+					</section>
+
+					<section>
+						 <blockquote>&ldquo;小程序无法替代原生app，小程序可以是原生app的一种补充    &rdquo;</blockquote>
+					</section>
+				</section>
+
+				<section data-background-transition="zoom" data-background="images/bg9.jpg">
+					<h2>Let's just do this.</h2>
+				</section>
+
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/jquery-3.2.0.min.js"></script>
+
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: false,
+				history: true,
+				center: true,
+
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+		<script type="text/javascript">
+			var i = 0;
+			var x = 0;
+			$('#element_selector_button').click(function () {
+				$('#hello_world').text('Hello jQuery!');
+			});
+			$("#class_selector_button").click(function(){
+			    $("#hello_jQuery").css('color','#42affa');
+			});
+			$("#id_selector_button").click(function(){
+			    $("#hide_hello").hide();
+			});
+			// 改变表格颜色
+			$("tr:even").css('background-color','#42affa')
+			$("#enter_text").mouseenter(function(){
+			    alert('Your mouse entered!');
+			});
+			$("#keypress_name").keypress(function(){
+			    $("#keypress_num").text(i+=1);
+			});
+			$("#focus_input").focus(function(){
+			    $("#focus_show").css("display","inline").fadeOut(2000);
+			});
+			 $(window).resize(function(){
+			    $("#resize_num").text(x+=1);
+			});
+			$("#fadeIn").click(function() {
+				$("#div1").fadeIn();
+			    $("#div2").fadeIn("slow");
+			    $("#div3").fadeIn(3000);
+			});
+			$("#fadeOut").click(function(){
+			    $("#div1").fadeOut();
+			    $("#div2").fadeOut("fast");
+			    $("#div3").fadeOut(2000);
+			});
+			$("#flip").click(function(){
+			    $("#panel").slideDown("slow");
+			});
+			$("#animateButton").click(function () {
+				$("#divAnimate").animate({left:'1000px'});
+			});
+
+
+		</script>
+
+
+
+	</body>
+</html>

@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JQuery Introduction</title>
+
+		<meta name="description" content="This is a presentation that shows how does the jquery works.">
+		<meta name="author" content="MayanDev/zouxiaoming">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<style type="text/css">
+			button {
+				width: 150px;
+				height: 60px;
+				font-size: 20px;
+				border-radius: 2px;
+			}
+			input {
+				width: 250px;
+				height: 60px;
+				font-size: 25px;
+			}
+			#focus_show {
+				display: none;
+			}
+
+			#panel,#flip
+			{
+				padding:5px;
+				text-align:center;
+				background-color:#42affa;
+				color: #fff;
+			}
+			#panel
+			{
+				padding:50px;
+				display:none;
+			}
+		</style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>-->
+		<script src="lib/js/html5shiv.js"></script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>How to use jQuery</h1>
+					<p>
+						<small>Presented by <a href="https://blog.csdn.net/qq_37954086">MayanDev</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Hello There</h2>
+						<p class="fragment">Today, we are gonna talk about the jQuery.</p>
+						<a class="fragment" href="http://jquery.com/download/"><img width="240" height="180" data-src="images/jquery_logo.gif" alt="jquery_logo"></a>
+					</section>
+
+					<section>
+						<h2>Three Questions...</h2>
+						<p class="fragment">What is jQuery?</p>
+						<p class="fragment">What jQuery can do?</p>
+						<p class="fragment">Why do we use jQuery?</p>
+						<p class="fragment">You will figure it out when I finish this report.</p>
+					</section>
+					
+					<section>
+						<h2>But then, Believe me...</h2>
+						<p class="fragment">You need some <em style="color: #42affa;">HTML</em>, <em style="color: #42affa;">CSS</em> and <em style="color: #42affa;">JavaScript</em> skills to be able to use <em style="color: #42affa;">jQuery</em> effectively.</p>
+						<p class="fragment">OK, let's begin!</p>
+					</section>
+
+
+				</section>
+
+				<!-- At First, What is DOM -->
+				<section>
+					<section>
+						<h2 class="fragment">DOM</h2>
+						<p>First, we should understand a conception.<p>
+						<p class="fragment">Well, the DOM stands for <em style="color: #42affa;">"Document Object Model"</em> blah blah blah... </p>
+						<!-- <p class="fragment">I dont't want to introduce the bored definition. It's too official and dull.</p> -->
+						<p class="fragment">Let's just see a series pictures.</p>	
+					</section>
+
+					<section>
+						<img width="700" height="450" data-src="images/is-html-the-dom.jpg">
+						<p class="fragment">But the <em style="color: #42affa;">HTML</em> you write is paresed by the browser and turned into the <em style="color: #42affa;">DOM</em>.</p>
+					</section>
+
+					<section>
+						<img width="700" height="450" data-src="images/devtools-dom.jpg">
+						<p class="fragment">It's a visual representation of the <em style="color: #42affa;">DOM!</em></p>
+					</section>
+
+					<section>
+						<img width="700" height="450" data-src="images/looks-like-html.jpg">
+						<p class="fragment">So, What is the DOM <em style="color: #42affa;">diffrent</em> than the HTML?</p>
+					</section>
+
+					<section>
+						<p>See the code, please!</p>
+						<pre  class="fragment"><code class="hljs" data-trim contenteditable>
+&lt;div id="container"&gt;&lt;/div&gt;</code></pre>
+						<p class="fragment">As you can see, the content in <em style="color: #42affa;">&lt;div&gt;</em> lablel is empty.</p>
+						<p class="fragment">What if...</p>
+						<pre class="fragment"><code class="hljs" data-trim contenteditable>						
+&lt;script type="text/javascript"&gt;
+	var container = document.getElementById("container");
+	container.innerHTML = "&lt;h1&gt;Presented by MayanDev.&lt;h1&gt;";
+&lt;/script&gt;	</code></pre>
+					</section>
+
+					<section>
+						<img width="600" height="400" data-src="images/devtools-by-js.jpg">
+						<p class="fragment">The element has added in this page.</p>
+						<!-- 因此，浏览器将HTML解析之后最终生成的文档对象，你可以看到，它是可以一层一层展开的树形结构，其中各个元素还包含了事件，例如上面的例子，我们可以通过js来对DOM进行操作-->
+					</section>
+
+					<section>
+						<p><em style="color: #42affa;">jQuery</em> promotes simplicity. </p>
+						<p class="fragment">All we need is just a single letter: <em style="color: #42affa;">$</em>.</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Selector</h2>
+						<ul class="fragment">
+							<li>Element Selector</li>
+							<li>Class Selector</li>
+							<li>Identity Selector</li>
+							<li>...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Element Selector</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$("button").click(function(){
+    $("p").text('Hello jQuery!');
+});</code></pre>
+						<button id="element_selector_button">Change Text</button>
+						<p id="hello_world">Hello World!</p>
+					</section>
+
+					<section>
+						<h2>Class Selector</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$("button").click(function(){
+    $(".helloText").css('color','#42affa');
+});</code></pre>
+						<button id="class_selector_button">Change Color</button>
+						<p id="hello_jQuery">Hello jQuery!</p>
+					</section>
+
+
+					<section>
+						<h2>Id Selector</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$("button").click(function(){
+    $("#hello_text").hide();
+});</code></pre>
+						<button id="id_selector_button">Hide Text</button>
+						<p id="hide_hello">Hello jQuery!</p>
+					</section>
+
+					<section>
+						<h2>More Selector...</h2>
+						<table class="table" style="font-size: 35px;">
+						<thead>
+							<tr>
+								<th>Syntax</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>$("*")</td>
+								<td>select all element</td>
+							</tr>
+							<tr>
+								<td>$("p:first")</td>
+								<td>select first &lt;p&gt; </td>
+							</tr>
+							<tr>
+								<td>$("[href]")</td>
+								<td>select the element with 'href' attribute</td>
+							</tr>
+							<tr>
+								<td>$("tr:even")</td>
+								<td>select the &lt;tr&gt; element at even positions</td>
+							</tr>
+							<tr>
+								<td>...</td>
+								<td>...</td>
+							</tr>
+						</tbody>
+					</table>
+					</section>
+
+					
+				</section>
+
+				<section>
+					<section>
+						<h2>Event</h2>
+						<table class="table" style="font-size: 35px;">
+						<thead>
+							<tr>
+								<th>Mouse Event</th>
+								<th>Keyboard Event</th>
+								<th>Form Event</th>
+								<th>Window Event</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>click</td>
+								<td>keypress</td>
+								<td>submit</td>
+								<td>load</td>
+							</tr>
+							<tr>
+								<td>dblclick</td>
+								<td>keydown</td>
+								<td>change</td>
+								<td>resize</td>
+							</tr>
+							<tr>
+								<td>mouseenter</td>
+								<td>keyup</td>
+								<td>focus</td>
+								<td>scroll</td>
+							</tr>
+							<tr>
+								<td>mouseleave</td>
+								<td></td>
+								<td>blur</td>
+								<td>unload</td>
+							</tr>
+							<tr>
+								<td>...</td>
+								<td>...</td>
+								<td>...</td>
+								<td>...</td>
+							</tr>
+						</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h2>mouseover</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$("#p1").mouseenter(function(){
+    alert('Your mouse entered!');
+});</code></pre>
+						<p id="enter_text">Move you mouse here.</p>
+					</section>
+
+					<section>
+						<h2>keypress</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$("input").keypress(function(){
+	$("#keypress_num").text(i+=1);
+});</code></pre>
+						enter you name: <input id="keypress_name" type="text">
+						<p>Press Number: <span id="keypress_num">0</span></p>
+					</section>
+
+
+					<section>
+						<h2>focus</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$("input").focus(function(){
+    $("span").css("display","inline").fadeOut(2000);
+});</code></pre>
+						<input id="focus_input">
+						<span id="focus_show">You name is?</span>
+						<p>Press input to focus.</p>
+					</section>
+
+					<section>
+						<h2>resize</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$(window).resize(function(){
+    $("span").text(x+=1);
+ });</code></pre>
+						<p>window resize <span id="resize_num">0</span> times.</p>
+						<p>Try to resize the window.</p>
+					</section>
+
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Effect</h2>
+						<ul class="fragment">
+							<li>Fade In/Out</li>
+							<li>Slide</li>
+							<li>Animate</li>
+							<li>...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>fade In/out</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$("#button1").click(function(){
+    $("#div1").fadeIn();
+    $("#div2").fadeIn("slow");
+    $("#div3").fadeIn(3000);
+});
+$("#button2").click(function(){
+    $("#div1").fadeOut();
+    $("#div2").fadeOut("fast");
+    $("#div3").fadeOut(2000);
+});</code></pre>
+						<button id="fadeIn">Fade In</button>
+						<button id="fadeOut">Fade Out</button>
+						<div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div>
+<div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div>
+<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+					</section>
+
+					<section>
+						<h2>Slide</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$("#flip").click(function(){
+    $("#panel").slideDown("slow");
+});</code></pre>		<div style="margin: 50px;">
+						<div id="flip">Click me to unfold.</div>
+						<div id="panel">Hello world!</div>
+						</div>
+					</section>
+
+					<section>
+						<h2>Animate</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+$("button").click(function(){
+    $("div").animate({left:'1000px'});
+});</code></pre>		<button id="animateButton">Start Animate</button>
+						<div>
+						<div id="divAnimate" style="background:#42affa;height:100px;width:100px;position:absolute;">
+					</section>
+					
+				</section>
+
+				<section>
+						<h2>Ajax</h2>
+						<iframe width="800" height="400" src="http://zouxiaoming.xyz:8080/html/weather.html"></iframe>
+				</section>
+
+				<section>
+					<section>
+					<p>Now, you should be able to answer the question when I first raised up. </p>
+					</section>
+					<section>
+						At last, let me show you a vedio.
+					</section>
+					<section>
+						<video src="vedio/md.mp4" controls="controls">
+							your browser does not support the video tag
+						</video>
+					</section>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<h3>Thanks for your listening</h3>
+					<p>
+						[1] <a href="http://www.runoob.com/jquery/jquery-tutorial.html">runoob.com/jquery</a> <br>
+						[2] <a href="https://css-tricks.com/dom/">css-tricks.com/dom</a><br>
+						[3] <a href="http://www.w3school.com.cn/jquery/index.asp">www.w3school.com.cn/jquery</a><br>
+						[4] <a href="https://github.com/hakimel/reveal.js">reveal.js</a>
+					</p>
+				</section>
+
+				<section>
+					<h1 style="font-size: 200px;">Q & A</h1>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/jquery-3.2.0.min.js"></script>
+
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: false,
+				history: true,
+				center: true,
+
+				transition: 'zoom', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+		<script type="text/javascript">
+			var i = 0;
+			var x = 0;
+			$('#element_selector_button').click(function () {
+				$('#hello_world').text('Hello jQuery!');
+			});
+			$("#class_selector_button").click(function(){
+			    $("#hello_jQuery").css('color','#42affa');
+			});
+			$("#id_selector_button").click(function(){
+			    $("#hide_hello").hide();
+			});
+			// 改变表格颜色
+			$("tr:even").css('background-color','#42affa')
+			$("#enter_text").mouseenter(function(){
+			    alert('Your mouse entered!');
+			});
+			$("#keypress_name").keypress(function(){
+			    $("#keypress_num").text(i+=1);
+			});
+			$("#focus_input").focus(function(){
+			    $("#focus_show").css("display","inline").fadeOut(2000);
+			});
+			 $(window).resize(function(){
+			    $("#resize_num").text(x+=1);
+			});
+			$("#fadeIn").click(function() {
+				$("#div1").fadeIn();
+			    $("#div2").fadeIn("slow");
+			    $("#div3").fadeIn(3000);
+			});
+			$("#fadeOut").click(function(){
+			    $("#div1").fadeOut();
+			    $("#div2").fadeOut("fast");
+			    $("#div3").fadeOut(2000);
+			});	
+			$("#flip").click(function(){
+			    $("#panel").slideDown("slow");
+			});
+			$("#animateButton").click(function () {
+				$("#divAnimate").animate({left:'1000px'});
+			});
+
+
+		</script>
+
+
+
+	</body>
+</html>
